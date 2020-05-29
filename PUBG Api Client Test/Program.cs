@@ -16,10 +16,7 @@ namespace PUBG.ApiClient.Test
         {
             PUBGApiClient pubgApiClient = new PUBGApiClient(ApiConstants.AuthToken);
 
-            var playerStat = await pubgApiClient.GetRankedSeasonStats("steam", "account.52155c4edbbc4614bf4b3bf4ee9afcd3", "division.bro.official.pc-2018-07");
-            
-            //Test caching!
-            playerStat = await pubgApiClient.GetRankedSeasonStats("steam", "account.52155c4edbbc4614bf4b3bf4ee9afcd3", "division.bro.official.pc-2018-07");
+            var weaponMastery = await pubgApiClient.GetWeaponMastery("steam", "account.52155c4edbbc4614bf4b3bf4ee9afcd3");
         }
     }
 }

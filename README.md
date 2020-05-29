@@ -8,7 +8,7 @@ Endpoints:
 - [Players](https://documentation.pubg.com/en/players-endpoint.html): fully implemented
 - [Season stats](https://documentation.pubg.com/en/seasons-endpoint.html): fully implemented
 - [Lifetime stats](https://documentation.pubg.com/en/lifetime-stats.html): fully implemented
-- [Weapon mastery](https://documentation.pubg.com/en/weapon-mastery-endpoint.html): not implemented yet
+- [Weapon mastery](https://documentation.pubg.com/en/weapon-mastery-endpoint.html): fully implemented
 - [Matches](https://documentation.pubg.com/en/matches-endpoint.html): not implemented yet
 - [Leaderboards](https://documentation.pubg.com/en/leaderboards-endpoint.html): not implemented yet
 - [Tournaments](https://documentation.pubg.com/en/tournaments-endpoint.html): not implemented yet

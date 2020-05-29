@@ -118,8 +118,15 @@ namespace PUBG.ApiClient
         /// <returns></returns>
         public Task<ApiResponse<SeasonStat[]>> GetLifetimeStats(string shard, string gameMode, string playerIds, bool gamepad = true)
         => MakeGETRequest<ApiResponse<SeasonStat[]>>($"/shards/{shard}/seasons/lifetime/gameMode/{gameMode}/players?filter[playerIds]={playerIds}&filter[gamepad]={gamepad.ToString().ToLower()}");
+        /// <summary>
+        /// Get weapon mastery information for a single player.
+        /// </summary>
+        /// <param name="shard">The game platform shard</param>
+        /// <param name="accountId">The player account ids, comma separated</param>
+        /// <returns></returns>
+        public Task<ApiResponse<WeaponMastery>> GetWeaponMastery(string shard, string accountId)
+        => MakeGETRequest<ApiResponse<WeaponMastery>>($"/shards/{shard}/players/{accountId}/weapon_mastery");
         #endregion
-
         #region httphandlers
         private async Task<T> MakeGETRequest<T>(string url, bool auth = true)
         {
