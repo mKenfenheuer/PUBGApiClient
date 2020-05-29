@@ -9,7 +9,7 @@ namespace PUBG.ApiClient.Model.Entity
         public int Count { get; private set; }
 
         [JsonConstructor]
-        public WeaponMedal(string MedalId, int Count)
+        private WeaponMedal(string MedalId, int Count)
         {
             this.MedalId = MedalId;
             this.Count = Count;

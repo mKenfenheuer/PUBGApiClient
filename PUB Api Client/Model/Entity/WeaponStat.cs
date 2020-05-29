@@ -11,7 +11,7 @@ namespace PUBG.ApiClient.Model.Entity
         public WeaponStatTotal StatsTotal { get; private set; }
 
         [JsonConstructor]
-        public WeaponStat(int XPTotal, int LevelCurrent, int TierCurrent, WeaponStatTotal StatsTotal)
+        private WeaponStat(int XPTotal, int LevelCurrent, int TierCurrent, WeaponStatTotal StatsTotal)
         {
             this.XPTotal = XPTotal;
             this.LevelCurrent = LevelCurrent;

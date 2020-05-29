@@ -12,7 +12,7 @@ namespace PUBG.ApiClient.Model.Entity
         public Dictionary<string,WeaponStat> WeaponSummaries { get; private set; }
 
         [JsonConstructor]
-        public WeaponMasteryAttributes(string platform, string seasonId, Dictionary<string, WeaponStat> weaponSummaries, string latestMatchId)
+        private WeaponMasteryAttributes(string platform, string seasonId, Dictionary<string, WeaponStat> weaponSummaries, string latestMatchId)
         {
             Platform = platform;
             SeasonId = seasonId;

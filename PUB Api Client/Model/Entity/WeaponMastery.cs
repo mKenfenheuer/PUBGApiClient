@@ -11,7 +11,7 @@ namespace PUBG.ApiClient.Model.Entity
         public WeaponMasteryAttributes Attributes { get; private set; }
 
         [JsonConstructor]
-        public WeaponMastery(string type, string id, WeaponMasteryAttributes attributes)
+        private WeaponMastery(string type, string id, WeaponMasteryAttributes attributes)
         {
             Type = type;
             AccountId = id;
