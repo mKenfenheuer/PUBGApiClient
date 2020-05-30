@@ -9,7 +9,7 @@ Endpoints:
 - [Season stats](https://documentation.pubg.com/en/seasons-endpoint.html): fully implemented
 - [Lifetime stats](https://documentation.pubg.com/en/lifetime-stats.html): fully implemented
 - [Weapon mastery](https://documentation.pubg.com/en/weapon-mastery-endpoint.html): fully implemented
-- [Matches](https://documentation.pubg.com/en/matches-endpoint.html): not implemented yet
+- [Matches](https://documentation.pubg.com/en/matches-endpoint.html): fully implemented
 - [Leaderboards](https://documentation.pubg.com/en/leaderboards-endpoint.html): not implemented yet
 - [Tournaments](https://documentation.pubg.com/en/tournaments-endpoint.html): not implemented yet
 - [Samples](https://documentation.pubg.com/en/samples-endpoint.html): not implemented yet
@@ -21,8 +21,8 @@ Caching:
 
 ## How to use it?
 
-1. Acquire an API key for authorization from the [pubg api developer portal.](https://developer.pubg.com/apps?locale=en)
- 2. Reference the project or a precompiled assembly in your own project. A NuGet Package will be available once the library is stable.
+ 1. Acquire an API key for authorization from the [pubg api developer portal.](https://developer.pubg.com/apps?locale=en)
+ 2. Reference the project or a precompiled assembly in your own project. A NuGet Package will be available once the library is stable and implements all available endpoints.
  3. Include the nescessary namespaces:
  
         using PUBG.ApiClient;
@@ -38,8 +38,9 @@ Caching:
        var rankedPlayerStats = await pubgApiClient.GetRankedSeasonStats("steam", account.c0e530e9b7244b358def282782f893af", "division.bro.official.pc-2018-07");
 
 ## The usage guide mentioned caching? What about caching? Do i have to implement this on my own?
-No. The Api client handles this for you. You can supply an `IRequestCache` to the constructor of the `PUBGApiClient` like below:
+No. The Api client handles this for you. By default `InMemoryRequestCache` is used. You can supply an `IRequestCache` to the constructor of the `PUBGApiClient` like below:
 
+    //This is the default behaviour of new PUBGApiClient(ApiConstants.AuthToken). This is just for illustration purposes!
     InMemoryRequestCache inMemoryRequestCache = new InMemoryRequestCache();
     PUBGApiClient pubgApiClient = new PUBGApiClient(ApiConstants.AuthToken, inMemoryRequestCache);
 
@@ -63,6 +64,22 @@ Other request caches will get implemented in the future but in the meantime you 
             //Implement cache retrieve logic here
         }
     }
+
+By default there are the following caching times defined in code by the `[MaxRequestAge(60 * 15)]` attribute:
+
+| Endpoint | Default cache time |
+|--|--|
+| Players | 15 mins |
+| Season stats | 15 mins |
+| Lifetime stats | 15 mins |
+| Weapon mastery | 15 mins |
+| Matches | Infinite |
+| Leaderboards | 2 hours |
+| Tournaments | Infinite |
+| Samples | No caching |
+| Telemetry | Infinite |
+| Status | No caching |  
+
 
 ## Issues or ideas? Feel free to create an issue, fork and pull requests!
 

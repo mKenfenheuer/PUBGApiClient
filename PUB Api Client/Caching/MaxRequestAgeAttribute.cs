@@ -6,7 +6,7 @@ namespace PUBG.ApiClient.Caching
 {
     public class MaxRequestAgeAttribute : Attribute
     {
-        public long MaxRequestAgeInSeconds { get; set; }
+        public long MaxRequestAgeInSeconds { get; private set; }
 
         public MaxRequestAgeAttribute(long maxRequestAgeInSeconds)
         {

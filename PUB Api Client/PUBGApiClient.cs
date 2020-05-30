@@ -101,7 +101,7 @@ namespace PUBG.ApiClient
         public Task<ApiResponse<SeasonStat>> GetRankedSeasonStats(string shard, string accountid, string seasonid)
         => MakeGETRequest<ApiResponse<SeasonStat>>($"/shards/{shard}/players/{accountid}/seasons/{seasonid}/ranked");
         /// <summary>
-        /// Gets the players lifetime stats 
+        /// Gets the players lifetime stats
         /// </summary>
         /// <param name="shard">The game platform shard</param>
         /// <param name="accountid">The players account id</param>
@@ -126,7 +126,16 @@ namespace PUBG.ApiClient
         /// <returns></returns>
         public Task<ApiResponse<WeaponMastery>> GetWeaponMastery(string shard, string accountId)
         => MakeGETRequest<ApiResponse<WeaponMastery>>($"/shards/{shard}/players/{accountId}/weapon_mastery");
+        /// <summary>
+        /// Get match information
+        /// </summary>
+        /// <param name="shard">The game platform shard</param>
+        /// <param name="matchId">The match id</param>
+        /// <returns></returns>
+        public Task<ApiResponse<Match>> GetMatch(string shard, string matchId)
+        => MakeGETRequest<ApiResponse<Match>>($"/shards/{shard}/matches/{matchId}", false);
         #endregion
+
         #region httphandlers
         private async Task<T> MakeGETRequest<T>(string url, bool auth = true)
         {
@@ -145,8 +154,8 @@ namespace PUBG.ApiClient
             if(type.GetGenericTypeDefinition() == typeof(ApiResponse<object>).GetGenericTypeDefinition())
             {
                 FieldInfo field = type.GetRuntimeFields().Where(f => f.Name.Contains("Data")).FirstOrDefault();
-                if (field != null 
-                    && field.FieldType != null 
+                if (field != null
+                    && field.FieldType != null
                     && field.FieldType.CustomAttributes != null)
                 {
 

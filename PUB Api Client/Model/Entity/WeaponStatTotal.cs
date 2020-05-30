@@ -20,7 +20,7 @@ namespace PUBG.ApiClient.Model.Entity
 
 
         [JsonConstructor]
-        public WeaponStatTotal(int MostDefeatsInAGame, int Defeats, float MostDamagePlayerInAGame, float DamagePlayer, int MostHeadShotsInAGame, int HeadShots, float LongestDefeat, int LongRangeDefeats, int Kills, int MostKillsInAGame, int Groggies, int MostGroggiesInAGame)
+        private WeaponStatTotal(int MostDefeatsInAGame, int Defeats, float MostDamagePlayerInAGame, float DamagePlayer, int MostHeadShotsInAGame, int HeadShots, float LongestDefeat, int LongRangeDefeats, int Kills, int MostKillsInAGame, int Groggies, int MostGroggiesInAGame)
         {
             this.MostDefeatsInAGame = MostDefeatsInAGame;
             this.Defeats = Defeats;
