@@ -38,8 +38,9 @@ Caching:
        var rankedPlayerStats = await pubgApiClient.GetRankedSeasonStats("steam", account.c0e530e9b7244b358def282782f893af", "division.bro.official.pc-2018-07");
 
 ## The usage guide mentioned caching? What about caching? Do i have to implement this on my own?
-No. The Api client handles this for you. You can supply an `IRequestCache` to the constructor of the `PUBGApiClient` like below:
+No. The Api client handles this for you. By default `InMemoryRequestCache` is used. You can supply an `IRequestCache` to the constructor of the `PUBGApiClient` like below:
 
+    //This is the default behaviour of new PUBGApiClient(ApiConstants.AuthToken). This is just for illustration purposes!
     InMemoryRequestCache inMemoryRequestCache = new InMemoryRequestCache();
     PUBGApiClient pubgApiClient = new PUBGApiClient(ApiConstants.AuthToken, inMemoryRequestCache);
 
