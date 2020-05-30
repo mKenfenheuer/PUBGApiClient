@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUBG Api Client Test", "PUBG Api Client Test\PUBG Api Client Test.csproj", "{580A4365-6909-4A9D-AC0E-45C832A152C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUBG Api Client", "PUB Api Client\PUBG Api Client.csproj", "{328ABDF8-93BC-4D5E-98D6-B62B5CF0B2BC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUBG Api Client", "PUBG Api Client\PUBG Api Client.csproj", "{328ABDF8-93BC-4D5E-98D6-B62B5CF0B2BC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
