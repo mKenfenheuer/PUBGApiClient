@@ -17,8 +17,8 @@ namespace PUBG.ApiClient.Test
             PUBGApiClient pubgApiClient = new PUBGApiClient(ApiConstants.AuthToken);
 
             //var weaponMastery = await pubgApiClient.GetWeaponMastery("steam", "account.52155c4edbbc4614bf4b3bf4ee9afcd3");
-            var samples = await pubgApiClient.GetMatchSamples("steam");
-            var matchInfo = await pubgApiClient.GetMatch("steam", "f563e97f-f0f2-43e2-9f52-b83bace3d4fe");            
+            //var seasons = await pubgApiClient.GetSeasons("steam");
+            var leaderboard = await pubgApiClient.GetLeaderboard("pc-eu", "division.bro.official.pc-2018-05", "duo");         
             
         }
     }

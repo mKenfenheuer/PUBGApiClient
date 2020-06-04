@@ -17,35 +17,54 @@ namespace PUBG.ApiClient.Model.Response
             Links = links;
             Errors = errors;
 
-            if(typeof(T) == typeof(Match))
-            {
-                Match match = (Match)(object)data;
-
-                for(int i = 0; i < match.Relationships.Rosters.Length; i++)
+            if (typeof(T) == typeof(Match))
+                if (data != null)
                 {
-                    Roster orig = match.Relationships.Rosters[i];
-                    dynamic incl = included.Where(d => d.type == orig.Type && d.id == orig.Id).FirstOrDefault();
-                    if(incl != null)
+                    Match match = (Match)(object)data;
+
+                    for (int i = 0; i < match.Relationships.Rosters.Length; i++)
                     {
-                        string inclRosterJson = JsonConvert.SerializeObject(incl);
-                        Roster inclRoster = JsonConvert.DeserializeObject<Roster>(inclRosterJson);
-
-                        for (int i2 = 0; i2 < inclRoster.Relationships.Participants.Length; i2++)
+                        Roster orig = match.Relationships.Rosters[i];
+                        dynamic incl = included.Where(d => d.type == orig.Type && d.id == orig.Id).FirstOrDefault();
+                        if (incl != null)
                         {
-                            Participant origParticipant = inclRoster.Relationships.Participants[i2];
-                            dynamic inclParticipant = included.Where(d => d.type == origParticipant.Type && d.id == origParticipant.Id).FirstOrDefault();
-                            if (incl != null)
-                            {
-                                string inclParticipantJson = JsonConvert.SerializeObject(inclParticipant);
-                                Participant inclParticipantObj = JsonConvert.DeserializeObject<Participant>(inclParticipantJson);
-                                inclRoster.Relationships.Participants[i2] = inclParticipantObj;
-                            }
-                        }
+                            string inclRosterJson = JsonConvert.SerializeObject(incl);
+                            Roster inclRoster = JsonConvert.DeserializeObject<Roster>(inclRosterJson);
 
-                        match.Relationships.Rosters[i] = inclRoster;
+                            for (int i2 = 0; i2 < inclRoster.Relationships.Participants.Length; i2++)
+                            {
+                                Participant origParticipant = inclRoster.Relationships.Participants[i2];
+                                dynamic inclParticipant = included.Where(d => d.type == origParticipant.Type && d.id == origParticipant.Id).FirstOrDefault();
+                                if (incl != null)
+                                {
+                                    string inclParticipantJson = JsonConvert.SerializeObject(inclParticipant);
+                                    Participant inclParticipantObj = JsonConvert.DeserializeObject<Participant>(inclParticipantJson);
+                                    inclRoster.Relationships.Participants[i2] = inclParticipantObj;
+                                }
+                            }
+
+                            match.Relationships.Rosters[i] = inclRoster;
+                        }
                     }
-                }                
-            }
+                }
+
+            if (typeof(T) == typeof(Leaderboard))
+                if (data != null)
+                {
+                    Leaderboard leaderboard = (Leaderboard)(object)data;
+
+                    for (int i = 0; i < leaderboard.Relationships.Players.Length; i++)
+                    {
+                        Player orig = leaderboard.Relationships.Players[i];
+                        dynamic incl = included.Where(d => d.type == orig.Type && d.id == orig.Id).FirstOrDefault();
+                        if (incl != null)
+                        {
+                            string inclPlayerJson = JsonConvert.SerializeObject(incl);
+                            Player inclPlayer = JsonConvert.DeserializeObject<Player>(inclPlayerJson);
+                            leaderboard.Relationships.Players[i] = inclPlayer;
+                        }
+                    }
+                }
         }
     }
 }
