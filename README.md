@@ -76,7 +76,7 @@ By default there are the following caching times defined in code by the `[MaxReq
 | Weapon mastery | 15 mins |
 | Matches | Infinite |
 | Leaderboards | 2 hours |
-| Tournaments | Infinite |
+| Tournaments | 15 mins |
 | Samples | No caching |
 | Telemetry | Infinite |
 | Status | No caching |  
