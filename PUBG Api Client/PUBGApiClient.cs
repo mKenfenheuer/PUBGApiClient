@@ -150,6 +150,19 @@ namespace PUBG.ApiClient
         /// <returns></returns>
         public Task<ApiResponse<Leaderboard>> GetLeaderboard(string shard, string seasonId, string gameMode)
         => MakeGETRequest<ApiResponse<Leaderboard>>($"/shards/{shard}/leaderboards/{seasonId}/{gameMode}");
+        /// <summary>
+        /// Get the list of available tournaments.
+        /// </summary>
+        /// <returns></returns>
+        public Task<ApiResponse<Tournament[]>> GetTournaments()
+        => MakeGETRequest<ApiResponse<Tournament[]>>($"/tournaments");
+        /// <summary>
+        /// Get information for a single tournament.
+        /// </summary>
+        /// <param name="tournamentId">The tournament id</param>
+        /// <returns></returns>
+        public Task<ApiResponse<Tournament>> GetTournaments(string tournamentId)
+        => MakeGETRequest<ApiResponse<Tournament>>($"/tournaments/{tournamentId}");
         #endregion
 
         #region httphandlers
