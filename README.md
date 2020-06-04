@@ -4,17 +4,18 @@ A .NET Standard API Client for the PUBG Statistics API
 
 ### Current status: work in progress
 
-Endpoints:
-- [Players](https://documentation.pubg.com/en/players-endpoint.html): fully implemented
-- [Season stats](https://documentation.pubg.com/en/seasons-endpoint.html): fully implemented
-- [Lifetime stats](https://documentation.pubg.com/en/lifetime-stats.html): fully implemented
-- [Weapon mastery](https://documentation.pubg.com/en/weapon-mastery-endpoint.html): fully implemented
-- [Matches](https://documentation.pubg.com/en/matches-endpoint.html): fully implemented
-- [Leaderboards](https://documentation.pubg.com/en/leaderboards-endpoint.html): fully implemented
-- [Tournaments](https://documentation.pubg.com/en/tournaments-endpoint.html): fully implemented
-- [Samples](https://documentation.pubg.com/en/samples-endpoint.html): fully implemented
-- [Telemetry](https://documentation.pubg.com/en/telemetry.html): not implemented yet
-- [Status](https://documentation.pubg.com/en/status-endpoint.html): not implemented yet
+| Endpoint | Status |
+|--|--|
+| [Players](https://documentation.pubg.com/en/players-endpoint.html) | fully implemented |
+| [Season stats](https://documentation.pubg.com/en/seasons-endpoint.html) | fully implemented |
+| [Lifetime stats](https://documentation.pubg.com/en/lifetime-stats.html) | fully implemented |
+| [Weapon mastery](https://documentation.pubg.com/en/weapon-mastery-endpoint.html) | fully implemented |
+| [Matches](https://documentation.pubg.com/en/matches-endpoint.html) | fully implemented |
+| [Leaderboards](https://documentation.pubg.com/en/leaderboards-endpoint.html) | fully implemented |
+| [Tournaments](https://documentation.pubg.com/en/tournaments-endpoint.html) | fully implemented |
+| [Samples](https://documentation.pubg.com/en/samples-endpoint.html) | fully implemented |
+| [Telemetry](https://documentation.pubg.com/en/telemetry.html) | not implemented yet |
+| [Status](https://documentation.pubg.com/en/status-endpoint.html) | not implemented yet |
 
 Caching: 
 - Basic in-memory caching available
