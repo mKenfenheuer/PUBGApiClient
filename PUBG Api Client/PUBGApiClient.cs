@@ -134,6 +134,35 @@ namespace PUBG.ApiClient
         /// <returns></returns>
         public Task<ApiResponse<Match>> GetMatch(string shard, string matchId)
         => MakeGETRequest<ApiResponse<Match>>($"/shards/{shard}/matches/{matchId}", false);
+        /// <summary>
+        /// Get match samples
+        /// </summary>
+        /// <param name="shard">The game platform shard</param>
+        /// <returns></returns>
+        public Task<ApiResponse<Sample>> GetMatchSamples(string shard)
+        => MakeGETRequest<ApiResponse<Sample>>($"/shards/{shard}/samples");
+        /// <summary>
+        /// Get the leaderboard for a game mode.
+        /// </summary>
+        /// <param name="shard">The game platform shard</param>
+        /// <param name="seasonId">The season id</param>
+        /// <param name="gameMode">The game mode</param>
+        /// <returns></returns>
+        public Task<ApiResponse<Leaderboard>> GetLeaderboard(string shard, string seasonId, string gameMode)
+        => MakeGETRequest<ApiResponse<Leaderboard>>($"/shards/{shard}/leaderboards/{seasonId}/{gameMode}");
+        /// <summary>
+        /// Get the list of available tournaments.
+        /// </summary>
+        /// <returns></returns>
+        public Task<ApiResponse<Tournament[]>> GetTournaments()
+        => MakeGETRequest<ApiResponse<Tournament[]>>($"/tournaments");
+        /// <summary>
+        /// Get information for a single tournament.
+        /// </summary>
+        /// <param name="tournamentId">The tournament id</param>
+        /// <returns></returns>
+        public Task<ApiResponse<Tournament>> GetTournaments(string tournamentId)
+        => MakeGETRequest<ApiResponse<Tournament>>($"/tournaments/{tournamentId}");
         #endregion
 
         #region httphandlers
@@ -160,7 +189,8 @@ namespace PUBG.ApiClient
                 {
 
                     MaxRequestAgeAttribute attr = (MaxRequestAgeAttribute) Attribute.GetCustomAttribute(field.FieldType, typeof(MaxRequestAgeAttribute));
-                    MaxRequestAgeInSeconds = attr.MaxRequestAgeInSeconds;
+                    if(attr != null)
+                        MaxRequestAgeInSeconds = attr.MaxRequestAgeInSeconds;
                 }
             }
 

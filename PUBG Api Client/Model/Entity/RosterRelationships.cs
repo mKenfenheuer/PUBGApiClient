@@ -9,7 +9,7 @@ namespace PUBG.ApiClient.Model.Entity
         public Participant[] Participants { get; private set; }
 
         [JsonConstructor]
-        private RosterRelationships(TeamData team, ParticipantsData participants)
+        private RosterRelationships(ApiData<Team> team, ApiData<Participant[]> participants)
         {
             Team = team.Data;
             Participants = participants.Data;

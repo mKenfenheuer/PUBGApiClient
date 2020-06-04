@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PUB Api Client\PUBG Api Client.csproj" />
+    <ProjectReference Include="..\PUBG Api Client\PUBG Api Client.csproj" />
   </ItemGroup>
 
 </Project>
