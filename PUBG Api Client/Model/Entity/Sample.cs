@@ -3,7 +3,6 @@ using PUBG.ApiClient.Caching;
 
 namespace PUBG.ApiClient.Model.Entity
 {
-    [MaxRequestAge(0)]
     public class Sample
     {
         public string Type { get; private set; }

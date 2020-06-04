@@ -10,7 +10,7 @@ namespace PUBG.ApiClient.Model.Entity
         public Round[] Rounds { get; private set; }
         public Spectator[] Spectators { get; private set; }
 
-        public MatchRelationships(MatchAssetsData assets, RostersData rosters, Round[] rounds, Spectator[] spectators)
+        public MatchRelationships(ApiData<MatchAsset[]> assets, ApiData<Roster[]> rosters, Round[] rounds, Spectator[] spectators)
         {
             MatchAssets = assets.Data;
             Rosters = rosters.Data;

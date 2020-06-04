@@ -14,7 +14,7 @@ namespace PUBG.ApiClient.Model.Entity
         public PlayerMatch[] MatchesSquadFPP { get; private set; }
 
         [JsonConstructor]
-        private StatRelationships(PlayerData player, SeasonData season, PlayerMatches matchesSolo, PlayerMatches matchesSoloFPP, PlayerMatches matchesDuo, PlayerMatches matchesDuoFPP, PlayerMatches matchesSquad, PlayerMatches matchesSquadFPP)
+        private StatRelationships(ApiData<Player> player, ApiData<Season> season, PlayerMatches matchesSolo, PlayerMatches matchesSoloFPP, PlayerMatches matchesDuo, PlayerMatches matchesDuoFPP, PlayerMatches matchesSquad, PlayerMatches matchesSquadFPP)
         {
             Player = player.Data;
             Season = season.Data;

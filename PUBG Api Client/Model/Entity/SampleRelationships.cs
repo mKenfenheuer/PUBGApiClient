@@ -8,7 +8,7 @@ namespace PUBG.ApiClient.Model.Entity
         public Match[] Matches { get; private set; }
 
         [JsonConstructor]
-        private SampleRelationships(MatchData matches)
+        private SampleRelationships(ApiData<Match[]> matches)
         {
             Matches = matches.Data;
         }

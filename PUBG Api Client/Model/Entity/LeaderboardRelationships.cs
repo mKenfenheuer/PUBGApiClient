@@ -8,7 +8,7 @@ namespace PUBG.ApiClient.Model.Entity
         public Player[] Players { get; private set; }
 
         [JsonConstructor]
-        private LeaderboardRelationships(PlayersData players)
+        private LeaderboardRelationships(ApiData<Player[]> players)
         {
             Players = players.Data;
         }
