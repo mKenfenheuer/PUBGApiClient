@@ -134,6 +134,14 @@ namespace PUBG.ApiClient
         /// <returns></returns>
         public Task<ApiResponse<Match>> GetMatch(string shard, string matchId)
         => MakeGETRequest<ApiResponse<Match>>($"/shards/{shard}/matches/{matchId}", false);
+        /// <summary>
+        /// Get match information
+        /// </summary>
+        /// <param name="shard">The game platform shard</param>
+        /// <param name="matchId">The match id</param>
+        /// <returns></returns>
+        public Task<ApiResponse<Sample>> GetMatchSamples(string shard)
+        => MakeGETRequest<ApiResponse<Sample>>($"/shards/{shard}/samples");
         #endregion
 
         #region httphandlers
